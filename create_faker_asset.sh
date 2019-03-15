@@ -32,14 +32,7 @@ ASSET_PORT=${2}
 
 
 RESP=`curl -X POST -u ${CLIENT_ID}:${CLIENT_SECRET} -H "Content-Type: application/x-www-form-urlencoded" -d 'grant_type=client_credentials' "${serverUrl}/uaa/oauth/token"`
-
-echo "Found response = [$RESP]"
-
 BEARER_TOKEN=`echo ${RESP:17:36}`
-
-echo "Found token [$BEARER_TOKEN]"
-
-ASSETS_LENGTH=-1
 
 ASSETS_LENGTH=`curl -H "Authorization: Bearer $BEARER_TOKEN" ${serverUrl}/assetmgmt/assets/search/property/assetId/$ASSET_HOSTNAME | jqn --color false 'size'`
 

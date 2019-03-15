@@ -139,10 +139,11 @@ When started, a prometheus endpoint will be made available at `http://prometheus
 
 ## Updating the configuration
 
-You can update runtime configuration like this :
+You can update runtime configuration by POSTing to the `/updateconfig/gauge_constant` like this :
 ```
-curl -v -X POST -d '{"enabled": true,"type": "ConstantValueGenerator","metric_name": "gauge_metro_getSICPPlatformVersion","props": {"interval": 1,"constantValue": 2}}' http://localhost:9191/updateconfig/gauge_xxx
-curl -X POST -H "Content-Type: application/json" -d '{"enabled": false,"type": "SinWaveValueGenerator","props": {"interval": 1}}' http://localhost:9191/updateconfig/gauge_xxx
+curl -v -X POST -H "Content-Type: application/json" -d '{"enabled": true,"type": "ConstantValueGenerator","metric_name": "gauge_constant","props": {"interval": 1,"constantValue": 2}}' http://prometheus-faker1:9191/updateconfig
+curl -v -X POST -H "Content-Type: application/json" -d '{"enabled": true,"type": "SinWaveValueGenerator","metric_name": "gauge_sinwave","props": {"interval": 5}}' http://prometheus-faker1:9191/updateconfig/gauge_sinwave
+curl -v -X POST -H "Content-Type: application/json" -d '{"enabled": true,"type": "RandomValueGenerator","metric_name": "gauge_random","props": {"from": 200, "to":400}}' http://prometheus-faker1:9191/updateconfig/gauge_random
 ```
 
 But be aware that this won't persist the configuration. So on next startup it will again read the configuration from the config server.

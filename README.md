@@ -1,8 +1,9 @@
 # Introduction
 
-This is module implements a random / fake metric generator for Prometheus.
-It can be configured through the ixortalk config server to generate metric values based on different value generators.
-The faker can be configured at runtime.
+This module provides a configuration driven random metric generator for Prometheus.
+It can be configured by means of a configuration file in the ixortalk config server to generate metric values based on different value generators.
+The faker can be configured at runtime and will also create corresponding assets in assetmgmt to act as dummy assets.
+These dummy assets can then feed data into prometheus.
 
 # Value Generators
 

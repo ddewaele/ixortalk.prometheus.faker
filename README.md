@@ -56,13 +56,19 @@ and is stored in the ixortalk.config.server project in the `ixortalk.prometheus.
 You can add the fakers to your stack by using docker compose. By specifying a hostname, we can ensure that the fakers can be called by that name, as
 
 ```
-prometheus-faker1:
+  prometheus-faker1:
     image: ixortalk/ixortalk.prometheus.faker:${IXORTALK_PROMETHEUS_FAKER_VERSION:-latest}
     hostname: prometheus-faker1
+    depends_on:
+      ixortalk-config-server:
+        condition: service_healthy
 
-prometheus-faker2:
+  prometheus-faker2:
     image: ixortalk/ixortalk.prometheus.faker:${IXORTALK_PROMETHEUS_FAKER_VERSION:-latest}
     hostname: prometheus-faker2
+    depends_on:
+      ixortalk-config-server:
+        condition: service_healthy
 ```
 
 ### Container startup - asset creation 

@@ -27,11 +27,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ixortalk</groupId>
-    <artifactId>ixortalk.prometheus.faker</artifactId>
+    <artifactId>ixortalk-prometheus-faker</artifactId>
     <version>1.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>ixortalk.prometheus.faker</name>
+    <name>prometheus-faker</name>
+    <url>https://github.com/ixortalk/ixortalk-prometheus-faker/tree/master</url>
     <description>IxorTalk docker for Prometheus Fake Data</description>
 
     <scm>
@@ -86,7 +87,7 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.4.13</version>
                 <configuration>
-                    <imageName>ixortalk/ixortalk.prometheus.faker</imageName>
+                    <imageName>ixortalk/ixortalk-prometheus-faker</imageName>
                     <imageTags>
                         <imageTag>${project.version}</imageTag>
                         <imageTag>latest</imageTag>
